@@ -1,0 +1,37 @@
+
+FUNCTION scalar(v1,v2:ARRAY_OF INTEGER[]) : return_BOOLEAN
+VAR
+    result:=0;
+    i:integer;
+BEGIN
+FOR i FROM 0 TO V1.length STEP 1  DO
+   result:= V1[i]*V2[i]+result
+END_FOR
+    IF (result=0) THEN
+        return true
+    ELSE
+        return false
+    END_IF
+END
+
+
+ALGORITHM count-scalar
+VAR
+   v1 : ARRAY_OF integer[]:[5,0,1]
+   v2 : ARRAY_OF integer[]:[-1,0,5]
+   test:BOOLEAN;
+   
+
+BEGIN
+    IF (v1.length<>v2.length) THEN
+        write("we can t calculate the scalar!!!")
+    ELSE
+    test:=scalar(v1,v2)
+    IF (test:=true) THEN
+        write ("ortho")
+        ELSE
+        write("no ortho")
+    END_IF
+END_IF
+END
+

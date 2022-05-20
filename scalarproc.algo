@@ -1,0 +1,38 @@
+PROCEDURE scalar(v1,v2: ARRAY_OF INTEGER[],VAR result :BOOLEAN)
+VAR
+    integer:=0;
+    somm :integer :=0;
+BEGIN
+    FOR i FROM 1 TO v1.length STEP 1  DO
+        somm:=somm+v1[i]*v2[i]
+    END_FOR
+    if (somm:=0) THEN
+    result:= true
+    result:=false
+    END_IF
+
+END
+
+
+
+ALGORITHM count-scalar
+VAR
+   v1 : ARRAY_OF integer[]:[5,0,1]
+   v2 : ARRAY_OF integer[]:[-1,0,5]
+   test:BOOLEAN;
+   
+
+BEGIN
+    IF (v1.length<>v2.length) THEN
+        write("we can t calculate the scalar!!!")
+    ELSE
+    scalar(v1,v2,test)
+    IF (test:=true) THEN
+        write ("ortho")
+        ELSE
+        write("no ortho")
+    END_IF
+END_IF
+END
+
+
